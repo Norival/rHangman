@@ -1,0 +1,12 @@
+Package: Rhangman
+Title: An implementation of the famous hangman game
+Version: 0.1
+Authors@R: person("Xavier", "Laviron", email = "xavier.laviron@gmx.fr", role = c("aut", "cre"))
+Description: Play the hangman game within R. Choose a word or randomly select a
+  word from a dictionnary. With awesome graphics!
+Depends: R (>= 3.5.1)
+License: GPL (>= 3.0)
+Encoding: UTF-8
+LazyData: true
+Suggests: testthat
+RoxygenNote: 6.1.0
