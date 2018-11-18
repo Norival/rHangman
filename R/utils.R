@@ -57,7 +57,7 @@
              lwd = 2)
   }
 
-  if (i == 10) {
+  if (i == 11) {
     text(x = 4, y = 0.5, labels = "YOU'RE DEAD!", col = "red")
   }
 
