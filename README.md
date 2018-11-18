@@ -12,5 +12,5 @@ dictionnary. It also has awesome graphics to display the hangman!
 You can easily install it with the `devtools` package:
 
 ```
-devtools::install_github("norival/Rhangman")
+devtools::install_github("norival/rhangman")
 ```
