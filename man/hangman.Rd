@@ -4,13 +4,17 @@
 \alias{hangman}
 \title{Play the hangman game}
 \usage{
-hangman(dictionnary = "french", n.letters = 6, graph = TRUE)
+hangman(dictionnary = "french", n.letters = 6, word = NULL,
+  graph = TRUE)
 }
 \arguments{
 \item{dictionnary}{Either one of 'french' or 'english'. The dictionnary from
-which to select a word}
+which to select a word. Ignored if `word` is given}
 
-\item{n.letters}{The number of letters of the wanted word}
+\item{n.letters}{The number of letters of the wanted word. Ignored if `word`
+is given}
+
+\item{word}{The word to choose}
 
 \item{graph}{Display or not the awesome graphics, default to TRUE. Will open
 a graphical window.}

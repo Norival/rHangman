@@ -2,7 +2,9 @@
 #'
 #' Choose a word of the given length from a dictionnary
 #'
-#' @param dict A vetor of words to choose from
+#' @param dict Either one of 'english' or 'french' to choose from installed
+#' dictionaries, or a file path to read custom dictionary, or a character vector
+#' of words to choose from
 #' @param n.letters The number of letters of the word to be chosen
 #' 
 #' @return A word. Wil throw an error if no word of the wanted length exists in
@@ -10,6 +12,15 @@
 
 .choose_word <- function(dict, n.letters)
 {
+  if (dict %in% c("english", "french")) {
+    # read an installed dictionary
+    dict <- readLines(con = system.file(dict, package = "Rhangman"))
+  } else if (length(dict) == 1) {
+    # read given file
+    dict <- readLines(con = dict)
+  }
+
+  # remove accents and punctuation signs
   dict <- iconv(dict, to = "ASCII//TRANSLIT")
   dict <- dict[-(grep("[[:punct:]]", dict))]
 
@@ -20,7 +31,7 @@
     stop("No word of that length :/")
   }
 
-  # sample a random word and remove accents
+  # sample a random word
   word <- ifelse(length(i) == 1, dict[i], dict[sample(i, 1)])
 
   return(word)

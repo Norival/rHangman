@@ -3,8 +3,10 @@
 #' Sets a game of hangman with a chosen word or a randomly selected word
 #'
 #' @param dictionnary Either one of 'french' or 'english'. The dictionnary from
-#' which to select a word
-#' @param n.letters The number of letters of the wanted word
+#' which to select a word. Ignored if `word` is given
+#' @param n.letters The number of letters of the wanted word. Ignored if `word`
+#' is given
+#' @param word The word to choose
 #' @param graph Display or not the awesome graphics, default to TRUE. Will open
 #' a graphical window.
 #'
@@ -12,13 +14,11 @@
 #'
 #' @export
 
-hangman <- function(dictionnary  = "french",
-                    n.letters    = 6,
-                    graph        = TRUE)
+hangman <- function(dictionnary = "french",
+                    n.letters   = 6,
+                    word        = NULL,
+                    graph       = TRUE)
 {
-  # read dictionnary file
-  dict <- readLines(con = system.file(dictionnary, package = "Rhangman"))
-
   # create graph window
   if (graph == TRUE) {
     plot(axes = FALSE, type = 'n', 1, xlab = "", ylab = "",
@@ -29,7 +29,9 @@ hangman <- function(dictionnary  = "french",
   n.tries <- 11
 
   # choose word
-  word <- .choose_word(dict, n.letters)
+  if (is.null(word)) {
+    word <- .choose_word(dictionnary, n.letters)
+  }
 
   # initialize letters
   said.letters  <- character(0)

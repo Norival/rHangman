@@ -7,7 +7,9 @@
 .choose_word(dict, n.letters)
 }
 \arguments{
-\item{dict}{A vetor of words to choose from}
+\item{dict}{Either one of 'english' or 'french' to choose from installed
+dictionaries, or a file path to read custom dictionary, or a character vector
+of words to choose from}
 
 \item{n.letters}{The number of letters of the word to be chosen}
 }
